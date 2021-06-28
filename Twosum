@@ -1,0 +1,25 @@
+Twosum: https://leetcode.com/problems/two-sum/
+
+#example:
+#[100,30,3,919,20] -> 949 = 30 + 919
+#
+#for idx, num of nums array
+#if num in hash_set, i.e. num = 949-nums[i] for some i
+#return hash_set[num], idx, with hash_set[num] containing i
+#
+#otherwise, append[949-num[i], i] as a key value pair
+#so that in the future when it is found, i is extracted.
+
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        hash_set = {}
+        
+        for idx, num in enumerate(nums):
+            if num in hash_set:    
+                return [hash_set[num], idx]
+            check = target-num
+            hash_set[check] = idx
+            
+            
+            
+            
